@@ -42,12 +42,18 @@ tar -C . --exclude=.git -czf - . | ssh coxinha@192.168.1.200 'tar -C /var/www/ba
 Caddy block (already installed on the server):
 
 ```caddyfile
-http://127.0.0.1:8081 {
+http://:8081 {
+    bind 127.0.0.1
     root * /var/www/barbtech.com
     file_server
     encode gzip
 }
 ```
+
+The address is `http://:8081` (any host) with `bind 127.0.0.1`, not
+`http://127.0.0.1:8081`. Cloudflare forwards the original `Host` header
+(`barbtech.com`), and a literal `127.0.0.1` site address only matches that host,
+which returns an empty response.
 
 Reload after changing it:
 
