@@ -30,20 +30,20 @@ python3 -m http.server 8080
 
 ## Deploy
 
-The server copy lives at `/home/coxinha/barbtech-site` and is served by Caddy on
+The server copy lives at `/var/www/barbtech.com` and is served by Caddy on
 `127.0.0.1:8081`. Cloudflare Tunnel routes `barbtech.com` and `www.barbtech.com` to it.
 
 Manual deploy from a workstation:
 
 ```sh
-rsync -az --delete ./ coxinha@192.168.1.200:/home/coxinha/barbtech-site/
+tar -C . --exclude=.git -czf - . | ssh coxinha@192.168.1.200 'tar -C /var/www/barbtech.com -xzf -'
 ```
 
 Caddy block (already installed on the server):
 
 ```caddyfile
 http://127.0.0.1:8081 {
-    root * /home/coxinha/barbtech-site
+    root * /var/www/barbtech.com
     file_server
     encode gzip
 }
@@ -61,14 +61,15 @@ Once the GitHub repository exists:
 
 ```sh
 ssh coxinha@192.168.1.200
-cd /home/coxinha
-git clone git@github.com:rafaelcbarbosa/barbtech-site.git
+sudo mkdir -p /var/www/barbtech.com
+sudo chown coxinha:coxinha /var/www/barbtech.com
+git clone git@github.com:rafaelcbarbosa/barbtech-site.git /var/www/barbtech.com
 ```
 
 Then add a crontab entry (mirrors Recipetor):
 
 ```cron
-* * * * * /home/coxinha/barbtech-site/deploy/auto-pull.sh >> /home/coxinha/barbtech-site/auto-pull.log 2>&1
+* * * * * /var/www/barbtech.com/deploy/auto-pull.sh >> /var/www/barbtech.com/auto-pull.log 2>&1
 ```
 
 ## Cloudflare Tunnel

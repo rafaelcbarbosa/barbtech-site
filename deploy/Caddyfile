@@ -1,5 +1,5 @@
 http://127.0.0.1:8081 {
-    root * /home/coxinha/barbtech-site
+    root * /var/www/barbtech.com
     file_server
     encode gzip
 }
