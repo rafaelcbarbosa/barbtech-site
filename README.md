@@ -78,6 +78,12 @@ Then add a crontab entry (mirrors Recipetor):
 * * * * * /var/www/barbtech.com/deploy/auto-pull.sh >> /var/www/barbtech.com/auto-pull.log 2>&1
 ```
 
+## Repository access
+
+Pushing from the workstation uses the repo-scoped deploy key at
+`~/.ssh/barbtech_deploy`, configured per-repo with `core.sshCommand`. The home
+server pulls over HTTPS because the repository is public.
+
 ## Cloudflare Tunnel
 
 The tunnel is token-managed (`/etc/cloudflared/token`), so hostnames are added in the
