@@ -1,25 +1,42 @@
 # barbtech-site
 
-Company landing page for **BarbTech Project Management Consulting Services**, served at
+Landing page for **BarbTech Project Management Consulting Services**, served at
 `https://barbtech.com` from the home server (`192.168.1.200`) through the existing
 Cloudflare Tunnel.
+
+The page positions BarbTech as a senior IT delivery leadership practice available for
+interim, fractional, subcontract, and project work. Copy is first person; rates and
+availability are not published.
 
 The Recipetor app stays at `https://recipetor.barbtech.com` and is not affected by this site.
 
 ## Structure
 
 ```
-index.html              single-page landing site
-styles.css              dark theme, no build step
-assets/                 logo, wordmark, favicons, social image
-assets/services/        six service illustrations (WebP)
+index.html              single-page site: hero, proof, services, models, about, contact
+styles.css              design tokens, dark theme, no build step
+assets/fonts/           self-hosted Inter and Fraunces variable WOFF2 (latin)
+assets/photo/           portrait in 600w/1000w, WebP + JPG
+assets/services/        service illustrations (WebP)
+assets/                 wordmark, logo mark, favicons, 1200x630 social image
 robots.txt
 sitemap.xml
 deploy/Caddyfile        Caddy site block for 127.0.0.1:8081
 deploy/auto-pull.sh     cron pull script for the server
 ```
 
-Plain static files: no dependencies, no build, no JavaScript.
+Plain static files: no dependencies, no build, no JavaScript. The mobile menu uses a
+native `<details>` disclosure.
+
+## Design
+
+- Dark surfaces with a single teal accent (`#3DDCC4`); all tokens live in `:root`.
+- Fraunces for display headings, Inter for body and UI, both self-hosted.
+- Fluid type via `clamp()`, breakpoints at 640px, 960px, and 1200px.
+- WCAG AA contrast for body, muted, and caption text; visible focus rings; reduced-motion
+  support.
+- `#6E6E78` from the original token set was lightened to `#85858F` so captions pass AA on
+  every dark surface.
 
 ## Local preview
 
@@ -33,13 +50,19 @@ python3 -m http.server 8080
 The server copy lives at `/var/www/barbtech.com` and is served by Caddy on
 `127.0.0.1:8081`. Cloudflare Tunnel routes `barbtech.com` and `www.barbtech.com` to it.
 
+Push to `main`; cron pulls the change within a minute:
+
+```cron
+* * * * * /var/www/barbtech.com/deploy/auto-pull.sh >> /var/www/barbtech.com/auto-pull.log 2>&1
+```
+
 Manual deploy from a workstation:
 
 ```sh
 tar -C . --exclude=.git -czf - . | ssh coxinha@192.168.1.200 'tar -C /var/www/barbtech.com -xzf -'
 ```
 
-Caddy block (already installed on the server):
+Caddy block (installed on the server):
 
 ```caddyfile
 http://:8081 {
@@ -61,22 +84,8 @@ Reload after changing it:
 sudo systemctl reload caddy
 ```
 
-### Auto-deploy from GitHub
-
-Once the GitHub repository exists:
-
-```sh
-ssh coxinha@192.168.1.200
-sudo mkdir -p /var/www/barbtech.com
-sudo chown coxinha:coxinha /var/www/barbtech.com
-git clone git@github.com:rafaelcbarbosa/barbtech-site.git /var/www/barbtech.com
-```
-
-Then add a crontab entry (mirrors Recipetor):
-
-```cron
-* * * * * /var/www/barbtech.com/deploy/auto-pull.sh >> /var/www/barbtech.com/auto-pull.log 2>&1
-```
+When an asset changes, bump its query string in `index.html` (for example
+`styles.css?v=4`) so Cloudflare's four-hour edge cache does not serve the old file.
 
 ## Repository access
 
@@ -84,31 +93,33 @@ Pushing from the workstation uses the repo-scoped deploy key at
 `~/.ssh/barbtech_deploy`, configured per-repo with `core.sshCommand`. The home
 server pulls over HTTPS because the repository is public.
 
-## Cloudflare Tunnel
+## Cloudflare
 
-The tunnel is token-managed (`/etc/cloudflared/token`), so hostnames are added in the
-Cloudflare dashboard:
+The tunnel is token-managed (`/etc/cloudflared/token`), so hostnames live in the
+dashboard:
 
-1. Zero Trust → Networks → Tunnels → the existing tunnel → **Public hostname**.
-2. Add `barbtech.com` → `HTTP` → `127.0.0.1:8081`.
-3. Add `www.barbtech.com` → `HTTP` → `127.0.0.1:8081`.
+- `barbtech.com` → `HTTP` → `127.0.0.1:8081`
+- `www.barbtech.com` → `HTTP` → `127.0.0.1:8081`
+- Redirect Rule: hostname equals `www.barbtech.com` → `concat("https://barbtech.com",
+  http.request.uri.path)` with a 301 and query string preserved.
 
-Before adding them, delete the existing proxied A records for `@` and `www` that point at
-Google Sites. Cloudflare creates the tunnel CNAME records automatically.
+Cloudflare Email Address Obfuscation rewrites the `mailto:` links, so the address is not
+exposed in the served HTML.
 
-Add a Redirect Rule so `www` resolves to the apex:
+## Content follow-ups
 
-- If hostname equals `www.barbtech.com`
-- Then redirect to `https://barbtech.com` (301, preserve path and query)
-
-## Cut over from Google Sites
-
-1. Remove `barbtech.com` and `www.barbtech.com` under the Google Sites custom-domain settings
-   so Google releases the domain.
-2. Confirm DNS now points at the tunnel for both hostnames.
-3. Visit `https://barbtech.com` and `https://www.barbtech.com`.
+- The Interim/Fractional and Separation/Divestiture cards currently use cropped variants of
+  the existing illustration set. Replace `assets/services/interim.webp` and
+  `assets/services/divestiture.webp` when dedicated art is available.
+- `assets/services/cloud.webp` has "CUSTOM SOFTWARE DEVELOPMENT" baked into the cube. Swap
+  the file if that wording should not appear on the modernization card.
+- Confirm the Executive MBA wording against the diploma. The credential chip currently reads
+  "Executive MBA / Executive Development, University of North Carolina at Chapel Hill (2018)".
+- Re-check every proof number (51%, 60%, 99.99%, 15+ yrs) and the About claims (teams of
+  about 40, multi-million-dollar programs, award-winning divestiture) before publishing new
+  claims.
 
 ## Email
 
-The contact link points to `rafael.barbtech@gmail.com`, so no mail hosting is required. If you
-later want `contact@barbtech.com`, enable Cloudflare Email Routing (free) to forward it.
+Contact uses `rafael.barbtech@gmail.com`, so no mail hosting is required. For
+`contact@barbtech.com`, enable Cloudflare Email Routing (free) to forward it.

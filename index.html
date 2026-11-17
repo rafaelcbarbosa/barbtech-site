@@ -3,49 +3,62 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>BarbTech — IT Consulting in Spring, Texas</title>
+    <title>BarbTech | Senior IT Delivery Leadership &amp; Agile Program Management</title>
     <meta
       name="description"
-      content="BarbTech provides top-notch IT consulting services to businesses in Spring, Texas — agile project management, mobile apps, cloud management, data analytics, ERP, and AI."
+      content="PMP-certified IT program leader with 15+ years delivering global ERP, agile, and modernization programs. Available for interim, fractional, and subcontract engagements."
     />
     <meta name="theme-color" content="#0a0a0c" />
     <link rel="canonical" href="https://barbtech.com/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="BarbTech" />
-    <meta property="og:title" content="BarbTech — IT Consulting in Spring, Texas" />
+    <meta property="og:title" content="BarbTech | Senior IT Delivery Leadership" />
     <meta
       property="og:description"
-      content="Top-notch IT consulting for businesses in Spring, Texas: agile delivery, mobile apps, cloud, data, ERP, and applied AI."
+      content="Agile transformation, ERP integration, and legacy modernization led by a PMP-certified program leader."
     />
     <meta property="og:url" content="https://barbtech.com/" />
-    <meta property="og:image" content="https://barbtech.com/assets/og-image.png" />
+    <meta property="og:image" content="https://barbtech.com/assets/og-image.png?v=2" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="BarbTech — Get things done" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="BarbTech — IT Consulting in Spring, Texas" />
+    <meta name="twitter:title" content="BarbTech | Senior IT Delivery Leadership" />
     <meta
       name="twitter:description"
-      content="Top-notch IT consulting for businesses in Spring, Texas: agile delivery, mobile apps, cloud, data, ERP, and applied AI."
+      content="Agile transformation, ERP integration, and legacy modernization led by a PMP-certified program leader."
     />
-    <meta name="twitter:image" content="https://barbtech.com/assets/og-image.png" />
+    <meta name="twitter:image" content="https://barbtech.com/assets/og-image.png?v=2" />
 
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-    <link rel="stylesheet" href="styles.css?v=2" />
-    <link rel="preload" as="image" href="assets/wordmark-white.png?v=2" />
+
+    <link
+      rel="preload"
+      href="assets/fonts/inter-var.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/fraunces-var.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" as="image" href="assets/logo-bt-tight.webp" type="image/webp" />
+    <link rel="stylesheet" href="styles.css?v=3" />
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        "name": "BarbTech Project Management Consulting Services",
-        "alternateName": "BarbTech",
+        "name": "BarbTech",
         "url": "https://barbtech.com/",
-        "email": "rafael.barbtech@gmail.com",
-        "description": "IT consulting for businesses in Spring, Texas: agile project management, mobile apps, cloud management, data analytics, ERP solutions, and applied AI.",
+        "description": "Senior IT delivery leadership: agile transformation, ERP integration, and legacy modernization.",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Spring",
@@ -53,8 +66,21 @@
           "postalCode": "77386",
           "addressCountry": "US"
         },
-        "areaServed": "Spring, Texas",
-        "sameAs": ["https://www.linkedin.com/company/barbtech"]
+        "founder": {
+          "@type": "Person",
+          "name": "Rafael Couto Barbosa",
+          "jobTitle": "IT Program Leader",
+          "sameAs": ["https://www.linkedin.com/in/rafaelcbarbosa"]
+        },
+        "areaServed": "US",
+        "knowsAbout": [
+          "Agile delivery",
+          "SAFe",
+          "Program management",
+          "ERP integration",
+          "Legacy modernization",
+          "IT divestitures"
+        ]
       }
     </script>
   </head>
@@ -64,21 +90,38 @@
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="/" aria-label="BarbTech home">
-          <img
-            src="assets/wordmark-white.png?v=2"
-            alt="BarbTech — Get things done"
-            width="943"
-            height="264"
-          />
+          <picture>
+            <source srcset="assets/wordmark-nav.webp" type="image/webp" />
+            <img
+              src="assets/wordmark-nav.png"
+              alt="BarbTech — Get things done"
+              width="320"
+              height="67"
+            />
+          </picture>
+          <span class="brand-descriptor">IT Delivery Leadership</span>
         </a>
+
         <nav class="site-nav" aria-label="Main navigation">
           <a href="#services">Services</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
-          <a class="button button-small" href="mailto:rafael.barbtech@gmail.com?subject=Project%20inquiry"
-            >Get in touch</a
-          >
         </nav>
+
+        <a
+          class="btn btn--primary header-cta"
+          href="mailto:rafael.barbtech@gmail.com?subject=Program%20inquiry"
+          >Get in touch</a
+        >
+
+        <details class="mobile-menu">
+          <summary class="menu-toggle">Menu</summary>
+          <nav class="menu-panel" aria-label="Mobile navigation">
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </details>
       </div>
     </header>
 
@@ -86,46 +129,65 @@
       <section class="hero">
         <div class="container hero-inner">
           <div class="hero-copy">
-            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Spring, Texas</p>
-            <h1>BarbTech IT Consulting</h1>
-            <p class="lead">
-              We specialize in providing top-notch IT consulting services to businesses in Spring,
-              Texas. Our expertise ensures that we get things done efficiently and effectively.
+            <p class="eyebrow">Spring, Texas · Remote-ready</p>
+            <h1>Senior IT delivery leadership for complex programs</h1>
+            <p class="hero-sub">
+              Agile transformation, systems integration, and legacy modernization, led by a
+              PMP-certified program leader with 15+ years in global enterprise IT.
             </p>
             <div class="hero-actions">
-              <a class="button" href="mailto:rafael.barbtech@gmail.com?subject=Project%20inquiry"
-                >Get in touch</a
+              <a
+                class="btn btn--primary"
+                href="mailto:rafael.barbtech@gmail.com?subject=Program%20inquiry"
+                >Start a conversation</a
               >
-              <a class="button button-ghost" href="#services">Explore services</a>
+              <a class="btn btn--secondary" href="#services">See services</a>
             </div>
-            <p class="hero-note">
-              Agile delivery · Mobile · Cloud · Data · ERP · AI
-            </p>
+            <p class="hero-creds">PMP · Agile/SAFe · ERP · Modernization · Applied AI</p>
           </div>
 
-          <div class="hero-panel" aria-hidden="true">
-            <div class="hero-glow"></div>
-            <img
-              class="hero-monogram"
-              src="assets/logo-bt.png"
-              alt=""
-              width="497"
-              height="497"
-              loading="eager"
-            />
-            <div class="hero-ring"></div>
+          <div class="hero-mark" aria-hidden="true">
+            <picture>
+              <source srcset="assets/logo-bt-tight.webp" type="image/webp" />
+              <img src="assets/logo-bt-tight.png" alt="" width="497" height="328" />
+            </picture>
           </div>
+        </div>
+      </section>
+
+      <section class="proof-band" aria-label="Results">
+        <div class="container">
+          <div class="proof-grid">
+            <div class="proof-item">
+              <p class="proof-number">51%</p>
+              <p class="proof-label">application cost reduction</p>
+            </div>
+            <div class="proof-item">
+              <p class="proof-number">60%</p>
+              <p class="proof-label">fewer incidents</p>
+            </div>
+            <div class="proof-item">
+              <p class="proof-number">99.99%</p>
+              <p class="proof-label">run time on global payroll interfaces</p>
+            </div>
+            <div class="proof-item">
+              <p class="proof-number">15+ yrs</p>
+              <p class="proof-label">leading global, multi-time-zone IT teams</p>
+            </div>
+          </div>
+          <p class="proof-note">
+            Results from enterprise programs at a global energy company.
+          </p>
         </div>
       </section>
 
       <section class="section" id="services">
         <div class="container">
           <div class="section-head">
-            <p class="eyebrow">What we do</p>
+            <p class="eyebrow">What I do</p>
             <h2>Services built around outcomes</h2>
             <p class="section-lead">
-              Six focused practices that help you modernize how you plan, build, and run
-              technology.
+              Six practices, one thread: getting complex technology work delivered.
             </p>
           </div>
 
@@ -138,14 +200,15 @@
                   width="500"
                   height="500"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="service-body">
-                <h3>Agile Project Management</h3>
+                <h3>Agile Delivery &amp; SAFe Transformation</h3>
                 <p>
-                  Adopt agile practices so your team can respond quickly to change, ship software
-                  that fits evolving customer needs, and improve efficiency across the
-                  organization.
+                  Reset struggling teams and build predictable delivery. From Scrum and Kanban
+                  rollouts to release train leadership, I help teams ship at a steady pace with full
+                  business transparency.
                 </p>
               </div>
             </article>
@@ -153,56 +216,20 @@
             <article class="service">
               <div class="service-media">
                 <img
-                  src="assets/services/mobile.webp"
-                  alt="Illustration of mobile app icons and a smartphone."
+                  src="assets/services/interim.webp"
+                  alt="Illustration of a program leader at the center of a delivery team."
                   width="500"
                   height="500"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="service-body">
-                <h3>Mobile Apps</h3>
+                <h3>Interim &amp; Fractional Program Management</h3>
                 <p>
-                  We analyze requirements and constraints, define the right architecture, and guide
-                  your app from prototyping through final release.
-                </p>
-              </div>
-            </article>
-
-            <article class="service">
-              <div class="service-media">
-                <img
-                  src="assets/services/cloud.webp"
-                  alt="Illustration of a city connected through a cloud network."
-                  width="500"
-                  height="500"
-                  loading="lazy"
-                />
-              </div>
-              <div class="service-body">
-                <h3>Cloud Management</h3>
-                <p>
-                  Keep your cloud infrastructure highly available, scalable, and secure. We help you
-                  migrate data and applications to reduce costs and widen access.
-                </p>
-              </div>
-            </article>
-
-            <article class="service">
-              <div class="service-media">
-                <img
-                  src="assets/services/analytics.webp"
-                  alt="Illustration of a team working with analytics dashboards."
-                  width="500"
-                  height="500"
-                  loading="lazy"
-                />
-              </div>
-              <div class="service-body">
-                <h3>Data Analytics</h3>
-                <p>
-                  Statistical analysis, machine learning, and visualization uncover insights,
-                  optimize processes, and improve performance — so you can make informed decisions.
+                  Senior, PMP-certified leadership when you need it, for as long as you need it.
+                  Multi-workstream programs, vendor management, stakeholder alignment, and rescue of
+                  troubled projects.
                 </p>
               </div>
             </article>
@@ -215,13 +242,14 @@
                   width="500"
                   height="500"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="service-body">
-                <h3>ERP Solutions</h3>
+                <h3>ERP &amp; Supply Chain Integration</h3>
                 <p>
-                  Gain real-time visibility into operations. We analyze your needs, design custom
-                  systems and processes, implement the changes, and support you afterward.
+                  SAP integration, vendor selection (RFI/RFQ), design, and testing for global
+                  logistics and HR platforms, with clean go-lives and no disruption to the business.
                 </p>
               </div>
             </article>
@@ -229,18 +257,60 @@
             <article class="service">
               <div class="service-media">
                 <img
-                  src="assets/services/ai.webp?v=2"
+                  src="assets/services/cloud.webp"
+                  alt="Illustration of a city connected through a cloud network."
+                  width="500"
+                  height="500"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="service-body">
+                <h3>Legacy Modernization &amp; Cloud Roadmaps</h3>
+                <p>
+                  Move client/server applications to cloud-hosted, web, and mobile-ready platforms.
+                  Architecture review, application portfolio rationalization, and legacy retirement.
+                </p>
+              </div>
+            </article>
+
+            <article class="service">
+              <div class="service-media">
+                <img
+                  src="assets/services/divestiture.webp"
+                  alt="Illustration of two delivery teams working in parallel across a connected enterprise network."
+                  width="500"
+                  height="500"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="service-body">
+                <h3>IT Separation &amp; Divestiture Delivery</h3>
+                <p>
+                  Carve-out IT for buyers and sellers: data extraction, system migration,
+                  cross-network connectivity, and a clean handover. Experience coordinating 20+
+                  parallel tracks.
+                </p>
+              </div>
+            </article>
+
+            <article class="service">
+              <div class="service-media">
+                <img
+                  src="assets/services/ai.webp"
                   alt="Illustration of a machine-learning head surrounded by technology icons."
                   width="500"
                   height="500"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="service-body">
-                <h3>A.I.</h3>
+                <h3>AI &amp; Private Infrastructure Advisory</h3>
                 <p>
-                  Apply proven machine-learning techniques to strengthen critical processes,
-                  balance asset management and cost control, and make performance easier to measure.
+                  Practical guidance on self-hosted, privacy-first infrastructure and on-premises AI
+                  inference, so sensitive data stays under your control.
                 </p>
               </div>
             </article>
@@ -248,55 +318,113 @@
         </div>
       </section>
 
-      <section class="section" id="about">
-        <div class="container about-inner">
-          <div class="about-copy">
-            <p class="eyebrow">About BarbTech</p>
-            <h2>A practical partner for your technology</h2>
-            <p>
-              BarbTech is an IT consulting practice based in Spring, Texas. We work alongside
-              businesses to plan, build, and run the technology they depend on — from agile delivery
-              and mobile apps to cloud infrastructure, data analytics, ERP, and applied AI.
-            </p>
-            <p>
-              Our approach is straightforward: understand the constraints, define the right
-              architecture, and deliver work that holds up in production.
-            </p>
+      <section class="section section--alt" id="engagement">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Engagement models</p>
+            <h2>Work with me your way</h2>
           </div>
-          <figure class="about-quote">
-            <blockquote>
-              “Our expertise ensures that we get things done efficiently and effectively.”
-            </blockquote>
-            <figcaption>BarbTech</figcaption>
-          </figure>
+
+          <div class="models-grid">
+            <div class="model">
+              <p class="model-number">01</p>
+              <h3>Subcontract</h3>
+              <p>I embed with your firm, under your brand and for your client.</p>
+            </div>
+            <div class="model">
+              <p class="model-number">02</p>
+              <h3>Fractional or interim</h3>
+              <p>Part-time or full-time senior lead, month to month.</p>
+            </div>
+            <div class="model">
+              <p class="model-number">03</p>
+              <h3>Project-based</h3>
+              <p>Fixed scope, clear deliverables, working directly with the client.</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="section contact" id="contact">
-        <div class="container">
-          <div class="contact-panel">
-            <div class="contact-copy">
-              <p class="eyebrow">Contact</p>
-              <h2>Let’s talk about your next project</h2>
-              <p>
-                Tell us what you’re working on and we’ll get back to you. Based in Spring, Texas —
-                working with businesses locally and remotely.
-              </p>
-            </div>
-            <div class="contact-actions">
-              <a class="button button-large" href="mailto:rafael.barbtech@gmail.com?subject=Project%20inquiry"
-                >Email BarbTech</a
-              >
-              <a
-                class="contact-link"
-                href="https://www.linkedin.com/company/barbtech"
-                target="_blank"
-                rel="noopener noreferrer"
-                >LinkedIn</a
-              >
-              <p class="contact-meta">Spring, TX 77386</p>
-            </div>
+      <section class="section" id="about">
+        <div class="container about-grid">
+          <figure class="about-photo">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="
+                  assets/photo/rafael-600.webp  600w,
+                  assets/photo/rafael-1000.webp 1000w
+                "
+                sizes="(min-width: 960px) 437px, (min-width: 480px) 420px, calc(100vw - 40px)"
+              />
+              <img
+                src="assets/photo/rafael-1000.jpg"
+                srcset="assets/photo/rafael-600.jpg 600w, assets/photo/rafael-1000.jpg 1000w"
+                sizes="(min-width: 960px) 437px, (min-width: 480px) 420px, calc(100vw - 40px)"
+                alt="Rafael Couto Barbosa"
+                width="1000"
+                height="1250"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </figure>
+
+          <div class="about-copy">
+            <p class="eyebrow">About</p>
+            <h2>A practical partner for your technology</h2>
+            <p>
+              I’m Rafael Couto Barbosa, an IT program leader with 15+ years across global enterprise
+              IT. I’ve run multi-million-dollar programs, led teams of about 40, and delivered an
+              award-winning divestiture. I hold a PMP, an MBA in Project Management, and an Executive
+              MBA, with a Computer Engineering degree behind them.
+            </p>
+            <p>
+              My approach is simple: understand the constraints, define the right architecture, and
+              deliver work that holds up in production.
+            </p>
+
+            <blockquote class="pull-quote">
+              <p>“Get things done.”</p>
+            </blockquote>
+
+            <ul class="credentials">
+              <li>PMP, Project Management Institute</li>
+              <li>
+                Executive MBA / Executive Development, University of North Carolina at Chapel Hill
+                (2018)
+              </li>
+              <li>MBA, Project Management, PUCPR (2009)</li>
+              <li>B.Eng., Computer Engineering, PUCPR (2006)</li>
+              <li>Programming Foundations: Secure Coding</li>
+            </ul>
           </div>
+        </div>
+      </section>
+
+      <section class="section section--alt contact" id="contact">
+        <div class="container contact-inner">
+          <p class="eyebrow">Contact</p>
+          <h2>Let’s talk about your next program</h2>
+          <p class="contact-lead">
+            Tell me what you’re delivering and where it’s stuck. I’ll get back to you promptly.
+            Based in Spring, Texas, working with firms and businesses locally and remotely.
+          </p>
+          <div class="contact-actions">
+            <a
+              class="btn btn--primary"
+              href="mailto:rafael.barbtech@gmail.com?subject=Program%20inquiry"
+              >Email me</a
+            >
+            <a
+              class="btn btn--secondary"
+              href="https://www.linkedin.com/in/rafaelcbarbosa"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn</a
+            >
+          </div>
+          <p class="contact-meta">Spring, TX 77386</p>
         </div>
       </section>
     </main>
@@ -307,7 +435,7 @@
         <p class="footer-meta">
           Spring, TX 77386 ·
           <a
-            href="https://www.linkedin.com/company/barbtech"
+            href="https://www.linkedin.com/in/rafaelcbarbosa"
             target="_blank"
             rel="noopener noreferrer"
             >LinkedIn</a
